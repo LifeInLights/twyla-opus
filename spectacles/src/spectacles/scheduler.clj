@@ -1,6 +1,8 @@
 (ns spectacles.scheduler
   (:require [spectacles.present-logo]
-            [spectacles.starfield]))
+            [spectacles.starfield]
+            [spectacles.bet-you-miss]
+            [clojure.core.async :as async]))
 
 (def sketches [{:setup  spectacles.present-logo/setup
                 :update spectacles.present-logo/update
@@ -8,9 +10,13 @@
 
                {:setup  spectacles.starfield/setup
                 :update spectacles.starfield/update-state
-                :draw   spectacles.starfield/draw-state}])
+                :draw   spectacles.starfield/draw-state}
 
-(def active-sketch (atom {:sketch (first sketches)
+               {:setup  spectacles.bet-you-miss/setup
+                :update spectacles.bet-you-miss/update-state
+                :draw   spectacles.bet-you-miss/draw-state}])
+
+(def active-sketch (atom {:sketch (last sketches)
                           :expiration :never}))
 
 (defn setup []
