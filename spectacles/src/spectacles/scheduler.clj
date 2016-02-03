@@ -16,7 +16,7 @@
                 :update spectacles.bet-you-miss/update-state
                 :draw   spectacles.bet-you-miss/draw-state}])
 
-(def active-sketch (atom {:sketch (last sketches)
+(def active-sketch (atom {:sketch (first sketches)
                           :expiration :never}))
 
 (defn setup []
