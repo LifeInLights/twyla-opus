@@ -2,7 +2,7 @@
   (:require [spectacles.present-logo]
             [spectacles.starfield]
             [spectacles.bet-you-miss]
-            [clojure.core.async :as async]))
+            ))
 
 (def sketches [{:setup  spectacles.present-logo/setup
                 :update spectacles.present-logo/update
