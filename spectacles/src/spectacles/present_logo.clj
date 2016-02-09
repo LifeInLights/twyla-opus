@@ -11,7 +11,7 @@
    :message ""})
 
 (defn update [state]
-  (let [period (.toPeriod (t/interval (t/now) (t/date-time 2016 2 11 18 0)))]
+  (let [period (.toPeriod (t/interval (t/now) (t/date-time 2016 2 11 23 0)))]
     (assoc state :message (str (t/in-days period) ":"
                                (.getHours period) ":"
                                (.getMinutes period) ":"

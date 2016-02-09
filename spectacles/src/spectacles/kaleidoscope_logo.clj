@@ -1,6 +1,6 @@
 ;; Example of using translate and rotate. Draws the Live In Lights logo.
 
-(ns spectacles.kaleidoscope
+(ns spectacles.kaleidoscope-logo
   (:require [quil.core :as q]
             [quil.middleware :as m]))
 
