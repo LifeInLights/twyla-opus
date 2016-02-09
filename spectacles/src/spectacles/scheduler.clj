@@ -3,6 +3,8 @@
             [spectacles.starfield]
             [spectacles.bet-you-miss]
             [spectacles.cyberspeed]
+            [spectacles.kaleidoscope-logo]
+            [spectacles.kaleidoscope]
             [clojure.core.async :as async]))
 
 (def sketches {:logo-countdown {:setup  spectacles.present-logo/setup
@@ -39,27 +41,18 @@
                                    :update spectacles.kaleidoscope-logo/update
                                    :draw   spectacles.kaleidoscope-logo/draw
                                    :name   "Kaleidoscope Logo"
-                                   :author "Arthur Hall III"}
-
-               ;; :social-light {:setup  spectacles.social-light/setup
-               ;;                :update spectacles.social-light/update-state
-               ;;                :draw   spectacles.social-light/draw-state
-               ;;                :name   "Socialight"
-               ;;                :author "Aaron Arnett"}
-               })
+                                   :author "Arthur Hall III"}})
 
 (def installations {:lifeinlights01 :logo-countdown
                     :lifeinlights02 :starfield
                     :lifeinlights03 :bet-you-miss
                     :lifeinlights04 :cyberspeed
                     :lifeinlights05 :kaleidoscope
-                    :lifeinlights06 :kaleidoscope-logo
-                    :lifeinlights07 :social-light
-                    })
+                    :lifeinlights06 :kaleidoscope-logo})
 
 (defn select-sketch []
   (let [hostname (.getHostName (java.net.InetAddress/getLocalHost))]
-    (get sketches (get installations (keyword hostname) :starfield)))) ;; :logo-countdown
+    (get sketches (get installations (keyword hostname) :logo-countdown))))
 
 (def active-sketch (atom {:sketch (select-sketch)
                           :expiration :never}))
