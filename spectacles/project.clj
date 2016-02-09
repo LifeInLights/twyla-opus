@@ -4,15 +4,11 @@
   :license {:name "Apache License 2.0"
             :url "http://www.apache.org/licenses/LICENSE-2.0"}
   :dependencies [[org.clojure/clojure "1.6.0"]
-                 [org.clojure/core.async "0.2.374"]
                  [quil "2.3.0"]
                  [clj-time "0.11.0"]]
-
-
   :resource-paths [
                    ;; Wordmaps / WordCram
                    "resources/wordcram/library/WordCram.jar"
                    "resources/wordcram/library/cue.language.jar"
                    "resources/wordcram/library/jsoup-1.7.2.jar"
-                   ]
-  )
+                   ])
