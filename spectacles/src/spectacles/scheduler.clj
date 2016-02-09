@@ -4,8 +4,7 @@
             [spectacles.bet-you-miss]
             [spectacles.cyberspeed]
             [spectacles.kaleidoscope-logo]
-            [spectacles.kaleidoscope]
-            [clojure.core.async :as async]))
+            [spectacles.kaleidoscope]))
 
 (def sketches {:logo-countdown {:setup  spectacles.present-logo/setup
                                 :update spectacles.present-logo/update
