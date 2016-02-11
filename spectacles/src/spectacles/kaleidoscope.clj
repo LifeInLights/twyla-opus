@@ -51,8 +51,8 @@
   (draw-dots 300 300 1 (:ldots state) q/rect)
   (draw-dots (/ (q/width) 2) (/ (q/height) 2) -1 (:rdots state) q/ellipse)
   (q/fill 0 0 0 255)
-  (q/rect 0 0 (/ (q/width) 4) (q/height))
-  (q/rect (* 0.75 (q/width)) 0 (q/width) (q/height)))
+  (q/rect 0 0 (* 0.20 (q/width)) (q/height))
+  (q/rect (* 0.80 (q/width)) 0 (q/width) (q/height)))
 
 
 (defn update-position [m]
