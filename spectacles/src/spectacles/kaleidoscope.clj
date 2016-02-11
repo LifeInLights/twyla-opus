@@ -81,13 +81,13 @@
     (assoc state :ldots (update-dots ldots)
                  :rdots (update-dots rdots))))
 
-(q/defsketch practice
-     :title "Kaleidoscope"
-     :size [800 600]
-     :setup setup
-     :draw draw
-     :update update
-     :features [:keep-on-top]
-     :middleware [m/fun-mode m/navigation-2d])
+;; (q/defsketch practice
+;;      :title "Kaleidoscope"
+;;      :size [800 600]
+;;      :setup setup
+;;      :draw draw
+;;      :update update
+;;      :features [:keep-on-top]
+;;      :middleware [m/fun-mode m/navigation-2d])
 
 
