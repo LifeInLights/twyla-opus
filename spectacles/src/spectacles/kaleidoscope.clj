@@ -25,9 +25,11 @@
   (q/background 0)
   (q/smooth)
   (q/frame-rate 60)
-  {:ldots (list (new_dot))
-   :rdots (list (new_dot))
-   :logo (q/load-image "resources/images/lifeinlights-logo.png")})
+  (let [image (q/load-image "resources/images/lifeinlights-logo.png")]
+    (q/resize image 150 0)
+    {:ldots (list (new_dot))
+     :rdots (list (new_dot))
+     :logo image}))
 
 (defn draw-dots [x y direction dots func]
   (q/push-matrix)
@@ -45,7 +47,7 @@
   (q/no-stroke)
   (q/fill 0 0 0 25)
   (q/rect 0 0 (q/width) (q/height))
-  (q/image (:logo state) (- (/ (q/width) 2) 100) (- (/ (q/height) 2) 100))
+  (q/image (:logo state) (- (/ (q/width) 2) 75) (- (/ (q/height) 2) 75))
   (draw-dots 300 300 1 (:ldots state) q/rect)
   (draw-dots (/ (q/width) 2) (/ (q/height) 2) -1 (:rdots state) q/ellipse)
   (q/fill 0 0 0 255)
@@ -79,13 +81,13 @@
     (assoc state :ldots (update-dots ldots)
                  :rdots (update-dots rdots))))
 
-;; (q/defsketch practice
-;;      :title "Kaleidoscope"
-;;      :size :fullscreen
-;;      :setup setup
-;;      :draw draw
-;;      :update update
-;;      :features [:keep-on-top]
-;;      :middleware [m/fun-mode m/navigation-2d])
+(q/defsketch practice
+     :title "Kaleidoscope"
+     :size [800 600]
+     :setup setup
+     :draw draw
+     :update update
+     :features [:keep-on-top]
+     :middleware [m/fun-mode m/navigation-2d])
 
 
