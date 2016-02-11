@@ -23,11 +23,11 @@
 (def stroke_weight 5) ; Thickness of each line
 ;; Background color for the sketch.  Add alpha to have the lines fade out
 ;; vs disappearing.
-(def background_color [0 0 20 10])
+(def background_color [0 0 20 30])
 (def frame_rate 60)
 (def over_sampling 2) ; This affects the smoothing.  0 will remove smoothing.
 (def reduction 2) ; Change this to modify the scaling.
-(def chance_of_new_line 0.75)
+(def chance_of_new_line 0.60)
 (def wiggle 5) ; Maximum distance the origin can move
 (def degrees_in_circle 360)
 
