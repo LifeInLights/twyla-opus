@@ -49,8 +49,6 @@
                            :name   "Whalesong"
                            :author "Aaron Arnett"}})
 
-;; TODO Determine what goes in Kerr A & B
-;; TODO Duplicate/split bet-you-miss
 (def installations {:lifeinlights01 :logo-countdown       ;; Leeds north door
                     :lifeinlights02 :starfield            ;; Commercial Kitchen (window)
                     :lifeinlights03 :bet-you-miss         ;; Easy Pickins (Needs to be duplicated/split, black background?)
@@ -58,9 +56,10 @@
                     :lifeinlights05 :whalesong            ;; Kerr (C)
                     :lifeinlights06 :kaleidoscope-logo    ;; Leeds lobby (or entrance?)
                     :lifeinlights07 :kaleidoscope         ;; Commercial Kitchen (facade) (800x600)
-                    :lifeinlights08 :kaleidoscope         ;; Kerr (A)
-                    :lifeinlights09 :kaleidoscope         ;; Kerr (B)
-                    }) 
+                    :lifeinlights08 :cyberspeed           ;; Kerr (A)
+                    :lifeinlights09 :cyberspeed           ;; Kerr (B)
+;;                    ;lifeinlights10 :                   ;; Unused
+:Spectre :bet-you-miss                    }) 
 
 (defn select-sketch []
   (let [hostname (.getHostName (java.net.InetAddress/getLocalHost))]
