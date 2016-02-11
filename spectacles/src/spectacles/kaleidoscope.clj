@@ -47,7 +47,11 @@
   (q/rect 0 0 (q/width) (q/height))
   (q/image (:logo state) (- (/ (q/width) 2) 100) (- (/ (q/height) 2) 100))
   (draw-dots 300 300 1 (:ldots state) q/rect)
-  (draw-dots (/ (q/width) 2) (/ (q/height) 2) -1 (:rdots state) q/ellipse))
+  (draw-dots (/ (q/width) 2) (/ (q/height) 2) -1 (:rdots state) q/ellipse)
+  (q/fill 0 0 0 255)
+  (q/rect 0 0 (/ (q/width) 4) (q/height))
+  (q/rect (* 0.75 (q/width)) 0 (q/width) (q/height)))
+
 
 (defn update-position [m]
   (-> m
@@ -76,11 +80,12 @@
                  :rdots (update-dots rdots))))
 
 ;; (q/defsketch practice
-;;     :title "Kaleidoscope"
-;;     :size :fullscreen
-;;     :setup setup
-;;     :draw draw
-;;     :update update
-;;     :features [:keep-on-top]
-;;     :middleware [m/fun-mode m/navigation-2d])
+;;      :title "Kaleidoscope"
+;;      :size :fullscreen
+;;      :setup setup
+;;      :draw draw
+;;      :update update
+;;      :features [:keep-on-top]
+;;      :middleware [m/fun-mode m/navigation-2d])
+
 
