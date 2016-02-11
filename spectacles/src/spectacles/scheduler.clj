@@ -4,7 +4,8 @@
             [spectacles.bet-you-miss]
             [spectacles.cyberspeed]
             [spectacles.kaleidoscope-logo]
-            [spectacles.kaleidoscope]))
+            [spectacles.kaleidoscope]
+            [spectacles.whalesong]))
 
 (def sketches {:logo-countdown {:setup  spectacles.present-logo/setup
                                 :update spectacles.present-logo/update
@@ -40,14 +41,26 @@
                                    :update spectacles.kaleidoscope-logo/update
                                    :draw   spectacles.kaleidoscope-logo/draw
                                    :name   "Kaleidoscope Logo"
-                                   :author "Arthur Hall III"}})
+                                   :author "Arthur Hall III"}
 
-(def installations {:lifeinlights01 :logo-countdown
-                    :lifeinlights02 :starfield
-                    :lifeinlights03 :bet-you-miss
-                    :lifeinlights04 :cyberspeed
-                    :lifeinlights05 :kaleidoscope
-                    :lifeinlights06 :kaleidoscope-logo})
+               :whalesong {:setup  spectacles.whalesong/setup
+                           :update spectacles.whalesong/update
+                           :draw   spectacles.whalesong/draw
+                           :name   "Whalesong"
+                           :author "Aaron Arnett"}})
+
+;; TODO Determine what goes in Kerr A & B
+;; TODO Duplicate/split bet-you-miss
+(def installations {:lifeinlights01 :logo-countdown       ;; Leeds north door
+                    :lifeinlights02 :starfield            ;; Commercial Kitchen (window)
+                    :lifeinlights03 :bet-you-miss         ;; Easy Pickins (Needs to be duplicated/split, black background?)
+                    :lifeinlights04 :cyberspeed           ;; Bridges and Lane
+                    :lifeinlights05 :whalesong            ;; Kerr (C)
+                    :lifeinlights06 :kaleidoscope-logo    ;; Leeds lobby (or entrance?)
+                    :lifeinlights07 :kaleidoscope         ;; Commercial Kitchen (facade) (800x600)
+                    :lifeinlights08 :kaleidoscope         ;; Kerr (A)
+                    :lifeinlights09 :kaleidoscope         ;; Kerr (B)
+                    }) 
 
 (defn select-sketch []
   (let [hostname (.getHostName (java.net.InetAddress/getLocalHost))]
