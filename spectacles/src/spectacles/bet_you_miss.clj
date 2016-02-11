@@ -102,9 +102,9 @@
   ; Set circle color.
   (q/fill (:color state) 255 255)
 
-  (draw-all state (/ (q/width) 4) (* 2 (/ (q/height) 3)))
+  (draw-all state (/ (q/width) 4) (* 3 (/ (q/height) 5)))
  
-  (draw-all state (* 3 (/ (q/width) 4)) (* 2 (/ (q/height) 3))))
+  (draw-all state (* 3 (/ (q/width) 4)) (* 3 (/ (q/height) 5))))
 
 ;; ;; LifeInLights sketch
 ;; ;; Artist: Galen Arnett
