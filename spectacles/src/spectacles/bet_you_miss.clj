@@ -15,20 +15,15 @@
 (defn update-state [state]
   ; Update sketch state by changing circle color and position.
   {:color (mod (+ (:color state) 0.7) 255)
-   :angle (+ (:angle state) 0.2)})
+   :angle (+ (:angle state) 0.1)})
 
-(defn draw-state [state]
-  ; Clear the sketch by filling it with light-grey color.
-  (q/background 240)
-  ; Set circle color.
-  (q/fill (:color state) 255 255)
-  ; Calculate x and y coordinates of the circle.
+(defn draw-all [state translation-x translation-y]
+    ; Calculate x and y coordinates of the circle.
   (let [angle (:angle state)
         x (* 125 (q/sin angle))
         y (* 125 (q/cos angle))]
     ; Move origin point to the center of the sketch.
-    (q/with-translation [(/ (q/width) 2)
-                         (/ (q/height) 2)]
+    (q/with-translation [translation-x translation-y]
       ; Draw the circle.
       (q/ellipse x y 100 100)
       (q/fill 255 (:color state) 255)
@@ -44,8 +39,7 @@
         x (* 1 (q/sin angle))
         y (* 1 (q/cos angle))]
     ; Move origin point to the center of the sketch.
-    (q/with-translation [(/ (q/width) 2)
-                         (/ (q/height) 2)]
+    (q/with-translation [translation-x translation-y]
       ; Draw the circle.
       (q/ellipse x y 100 100)
       (q/fill 255 (:color state) 255)
@@ -60,8 +54,7 @@
         x (* 175 (q/cos angle))
         y (* 175 (q/sin angle))]
     ; Move origin point to the center of the sketch.
-    (q/with-translation [(/ (q/width) 2)
-                         (/ (q/height) 2)]
+    (q/with-translation [translation-x translation-y]
       ; Draw the circle.
       (q/ellipse x y 100 100)
       (q/fill 255 (:color state) 255)
@@ -76,8 +69,7 @@
         x (* 175 (q/cos angle))
         y (* 175 (q/cos angle))]
     ; Move origin point to the center of the sketch.
-    (q/with-translation [(/ (q/width) 2)
-                         (/ (q/height) 2)]
+    (q/with-translation [translation-x translation-y]
       ; Draw the circle.
       (q/ellipse x y 100 100)
       (q/fill 255 (:color state) 255)
@@ -92,8 +84,7 @@
         x (* -175 (q/sin angle))
         y (* 175 (q/sin angle))]
     ; Move origin point to the center of the sketch.
-    (q/with-translation [(/ (q/width) 2)
-                         (/ (q/height) 2)]
+    (q/with-translation [translation-x translation-y]
       ; Draw the circle.
       (q/ellipse x y 100 100)
       (q/fill 255 (:color state) 255)
@@ -102,12 +93,22 @@
       (q/ellipse x y 50 50)
       (q/fill (:color state) 255 255)
       (q/ellipse x y 25 25)
-      (q/ellipse x y 1 1)))
-  )
+      (q/ellipse x y 1 1))))
 
-;; LifeInLights sketch
-;; Artist: Galen Arnett
-;; Date Created: 2016-01-19
+(defn draw-state [state]
+
+  ; Clear the sketch by filling it with light-grey color.
+  (q/background 0)
+  ; Set circle color.
+  (q/fill (:color state) 255 255)
+
+  (draw-all state (/ (q/width) 4) (* 2 (/ (q/height) 3)))
+ 
+  (draw-all state (* 3 (/ (q/width) 4)) (* 2 (/ (q/height) 3))))
+
+;; ;; LifeInLights sketch
+;; ;; Artist: Galen Arnett
+;; ;; Date Created: 2016-01-19
 
 ;; (q/defsketch bet-you-miss
 ;;   :title "Bet You Miss - Galen Arnett"
