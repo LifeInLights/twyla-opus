@@ -36,15 +36,15 @@
     (.drawNext (:wordcram state)))
   state)
 
-(q/defsketch spectacles
-  :title "Social Light"
-  :size [800 600]
-  ; setup function called only once, during sketch initialization.
-  :setup setup
-  ; update-state is called on each iteration before draw-state.
-  :update update-state
-  :draw draw-state
-  :features [:keep-on-top]
-  :middleware [m/fun-mode]
-  :features [:keep-on-top :present :no-start]
-  :bgcolor 0)
+;; (q/defsketch spectacles
+;;   :title "Social Light"
+;;   :size [800 600]
+;;   ; setup function called only once, during sketch initialization.
+;;   :setup setup
+;;   ; update-state is called on each iteration before draw-state.
+;;   :update update-state
+;;   :draw draw-state
+;;   :features [:keep-on-top]
+;;   :middleware [m/fun-mode]
+;;   :features [:keep-on-top :present :no-start]
+;;   :bgcolor 0)
