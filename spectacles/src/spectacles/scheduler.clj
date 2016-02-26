@@ -5,7 +5,8 @@
             [spectacles.cyberspeed]
             [spectacles.kaleidoscope-logo]
             [spectacles.kaleidoscope]
-            [spectacles.whalesong]))
+            [spectacles.whalesong]
+            [spectacles.simple-camera]))
 
 (def sketches {:logo-countdown {:setup  spectacles.present-logo/setup
                                 :update spectacles.present-logo/update
@@ -47,7 +48,13 @@
                            :update spectacles.whalesong/update
                            :draw   spectacles.whalesong/draw
                            :name   "Whalesong"
-                           :author "Aaron Arnett"}})
+                           :author "Aaron Arnett"}
+
+               :simple-camera {:setup  spectacles.simple-camera/setup
+                               :update spectacles.simple-camera/update
+                               :draw   spectacles.simple-camera/draw
+                               :name   "SimpleCam"
+                               :author "Aaron Arnett"}})
 
 (def installations {:lifeinlights01 :logo-countdown       ;; Leeds north door
                     :lifeinlights02 :starfield            ;; Commercial Kitchen (window)
@@ -59,7 +66,7 @@
                     :lifeinlights08 :cyberspeed           ;; Kerr (A)
                     :lifeinlights09 :cyberspeed           ;; Kerr (B)
 ;;                    ;lifeinlights10 :                   ;; Unused
-:Spectre :bet-you-miss                    }) 
+:Spectre :simple-camera                    }) 
 
 (defn select-sketch []
   (let [hostname (.getHostName (java.net.InetAddress/getLocalHost))]

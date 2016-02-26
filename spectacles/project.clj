@@ -11,4 +11,9 @@
                    "resources/wordcram/library/WordCram.jar"
                    "resources/wordcram/library/cue.language.jar"
                    "resources/wordcram/library/jsoup-1.7.2.jar"
+
+                   ;; Processing Video
+                   "resources/processing-video/jna.jar"
+                   "resources/processing-video/video.jar"
+                   "resources/processing-video/gstreamer-java.jar"
                    ])
