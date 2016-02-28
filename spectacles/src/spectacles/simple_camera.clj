@@ -8,24 +8,27 @@
 (defn setup []
   (println "Initializing Camera...")
   (let [;; If using a discovered list of cameras...
-        ;;cameras (Capture/list)
+;        cameras (Capture/list)
         ;;camera (Capture. (quil.applet/current-applet) (first cameras))
         ;; Otherwise, pick it explicitly...
                                         ;        camera (Capture. (quil.applet/current-applet) 1280 720 "/dev/video1" 20)
-        camera (Capture. (quil.applet/current-applet) 1024 768 "/dev/video1" 15)
+                                        ;        camera (Capture. (quil.applet/current-applet) 1024 768 "/dev/video1" 15)
+        camera (Capture. (quil.applet/current-applet))
         ]
     (do
-;;      (clojure.pprint/pprint cameras) ; Display a list of known cameras
+;      (clojure.pprint/pprint cameras) ; Display a list of known cameras
       (.start camera))
     {:camera camera})
 )
 
 (defn update [state]
+  (println "Updating Camera...")
   (if (.available (:camera state))
       (.read (:camera state)))
   state)
 
 (defn draw [state]
+  (println "Drawing Camera...")
   (q/image (:camera state) 0 0))
 
 ;; (q/defsketch getting-started-capture

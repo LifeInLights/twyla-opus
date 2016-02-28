@@ -15,5 +15,5 @@
                    ;; Processing Video
                    "resources/processing-video/jna.jar"
                    "resources/processing-video/video.jar"
-                   "resources/processing-video/gstreamer-java.jar"
+                   "resources/processing-video/gst1-java-core-0.9-SNAPSHOT.jar"
                    ])
