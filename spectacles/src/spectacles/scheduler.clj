@@ -68,6 +68,12 @@
                                :update spectacles.simple-camera/update
                                :draw   spectacles.simple-camera/draw
                                :name   "SimpleCam"
+                               :author "Aaron Arnett"}
+
+               :mirror-camera {:setup  spectacles.mirror-camera/setup
+                               :update spectacles.mirror-camera/update
+                               :draw   spectacles.mirror-camera/draw
+                               :name   "MirrorCam"
                                :author "Aaron Arnett"}})
 
 (def installations {:lifeinlights01 :logo-countdown       ;; Leeds north door
@@ -80,7 +86,7 @@
                     :lifeinlights08 :cyberspeed           ;; Kerr (A)
                     :lifeinlights09 :cyberspeed           ;; Kerr (B)
 ;;                    ;lifeinlights10 :                   ;; Unused
-:Spectre :simple-camera                    }) 
+:Spectre :mirror-camera                    }) 
 
 (defn select-sketch []
   (let [hostname (.getHostName (java.net.InetAddress/getLocalHost))]
