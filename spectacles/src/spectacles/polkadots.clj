@@ -1,4 +1,4 @@
-(ns spectacals.polkadots
+(ns spectacles.polkadots
   (:require [quil.core :as q]
             [quil.middleware :as m]))
 
@@ -86,7 +86,7 @@
         (assoc m :x (- 0 radius))
         (update-in m [:x] operation 1)))))
 
-(defn update-state [state]
+(defn update [state]
   (let [vdots (:vdots state)
         hdots (:hdots state)
         move_left (partial update-x -)

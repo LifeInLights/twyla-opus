@@ -6,11 +6,9 @@
             [spectacles.kaleidoscope-logo]
             [spectacles.kaleidoscope]
             [spectacles.whalesong]
-<<<<<<< HEAD
-            [spectacles.fireflies]))
-=======
+            [spectacles.fireflies]
+            [spectacles.polkadots]
             [spectacles.simple-camera]))
->>>>>>> 6bc51d9
 
 (def sketches {:logo-countdown {:setup  spectacles.present-logo/setup
                                 :update spectacles.present-logo/update
@@ -64,7 +62,7 @@
                            :update spectacles.polkadots/update
                            :draw   spectacles.polkadots/draw
                            :name   "Marching Polka Dots"
-                           :author "Arthur Hall III"}})
+                           :author "Arthur Hall III"}
 
                :simple-camera {:setup  spectacles.simple-camera/setup
                                :update spectacles.simple-camera/update

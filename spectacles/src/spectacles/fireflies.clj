@@ -6,7 +6,7 @@
 (defn generate_fireflies
   [count]
 
-  {:fireflies (into [] (repeatedly count (fn [] [(q/random 600) (q/random 600)])))
+  {:fireflies (into [] (repeatedly count (fn [] [(q/random (q/width)) (q/random (q/height))])))
    :velocity (into [] (repeatedly count (fn [] '[1 1])))
    :acceleration (into [] (repeatedly count (fn [] '[1 1])))
    :on (into [] (repeatedly count (fn [] true)))})
@@ -14,7 +14,7 @@
 (defn setup []
   (q/smooth)
   (q/frame-rate 30)
-  (generate_fireflies 25)
+  (generate_fireflies 40)
   )
 
 (defn draw-firefly
@@ -44,8 +44,8 @@
 (defn update-acceleration
   [[x y] [ax ay]]
 
-  [(* 0.0005 (- (q/mouse-x) x))
-   (* 0.0005 (- (q/mouse-y) y))])
+  [(* 0.0002 (- (q/mouse-x) x))
+   (* 0.0002 (- (q/mouse-y) y))])
 
 (defn limit-velocity
   [a limit]
