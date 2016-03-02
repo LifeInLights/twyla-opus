@@ -5,7 +5,8 @@
             [spectacles.cyberspeed]
             [spectacles.kaleidoscope-logo]
             [spectacles.kaleidoscope]
-            [spectacles.whalesong]))
+            [spectacles.whalesong]
+            [spectacles.fireflies]))
 
 (def sketches {:logo-countdown {:setup  spectacles.present-logo/setup
                                 :update spectacles.present-logo/update
@@ -47,7 +48,19 @@
                            :update spectacles.whalesong/update
                            :draw   spectacles.whalesong/draw
                            :name   "Whalesong"
-                           :author "Aaron Arnett"}})
+                           :author "Aaron Arnett"}
+
+               :fireflies {:setup  spectacles.fireflies/setup
+                           :update spectacles.fireflies/update
+                           :draw   spectacles.fireflies/draw
+                           :name   "Fireflies"
+                           :author "Arthur Hall III"}
+
+               :polkadots {:setup  spectacles.polkadots/setup
+                           :update spectacles.polkadots/update
+                           :draw   spectacles.polkadots/draw
+                           :name   "Marching Polka Dots"
+                           :author "Arthur Hall III"}})
 
 (def installations {:lifeinlights01 :logo-countdown       ;; Leeds north door
                     :lifeinlights02 :starfield            ;; Commercial Kitchen (window)

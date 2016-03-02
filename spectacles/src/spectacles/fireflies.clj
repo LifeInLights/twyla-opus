@@ -1,4 +1,4 @@
-(ns spectacals.fireflies
+(ns spectacles.fireflies
   (:require [quil.core :as q]
             [quil.middleware :as m]))
 
@@ -34,7 +34,7 @@
       (q/fill 0 32 0 128)
       (q/ellipse x y 20 20))))
 
-(defn draw-state [state]
+(defn draw [state]
   (q/background 0)
   (q/no-stroke)
 
@@ -77,19 +77,19 @@
     (< (q/random 1000) 950)
     (< (q/random 100) 5)))
 
-(defn update-state [state]
+(defn update [state]
   (assoc state :fireflies (into [] (map update-firefly (:fireflies state) (:velocity state)))
          :velocity (into [] (map update-velocity (:fireflies state) (:velocity state) (:acceleration state)))
          :acceleration (into [] (map update-acceleration (:fireflies state) (:acceleration state)))
          :on (into [] (map update-on (:on state)))
          ))
 
-(q/defsketch practice
-  :title "Fireflies"
-  :size :fullscreen
-  :setup setup
-  :draw draw-state
-  :update update-state
-  :features [:keep-on-top]
-  :middleware [m/fun-mode])
+;; (q/defsketch practice
+;;   :title "Fireflies"
+;;   :size :fullscreen
+;;   :setup setup
+;;   :draw draw
+;;   :update update
+;;   :features [:keep-on-top]
+;;   :middleware [m/fun-mode])
 
