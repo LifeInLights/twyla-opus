@@ -5,17 +5,19 @@
 
 ;; Use of Video/Capture documented at https://github.com/quil/quil/issues/75
 
+(def camera-specs {:device "/dev/video0"
+                   :width 1024
+                   :height 768
+                   :frame-rate 30})
+
 (defn setup []
   (println "Initializing Camera...")
-  (let [;; If using a discovered list of cameras...
-        ;;cameras (Capture/list)
-        ;;camera (Capture. (quil.applet/current-applet) (first cameras))
-        ;; Otherwise, pick it explicitly...
-                                        ;        camera (Capture. (quil.applet/current-applet) 1280 720 "/dev/video1" 20)
-        camera (Capture. (quil.applet/current-applet) 1024 768 "/dev/video1" 15)
-        ]
+  (let [camera (Capture. (quil.applet/current-applet)
+                         (:width camera-specs)
+                         (:height camera-specs)
+                         (:device camera-specs)
+                         (:frame-rate camera-specs))]
     (do
-;;      (clojure.pprint/pprint cameras) ; Display a list of known cameras
       (.start camera))
     {:camera camera})
 )

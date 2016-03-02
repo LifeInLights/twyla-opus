@@ -7,7 +7,7 @@
 
 (defn setup []
 
-  (def camera-specs {:device "/dev/video1"
+  (def camera-specs {:device "/dev/video0"
                      :width 1024
                      :height 768
                      :frame-rate 30})
