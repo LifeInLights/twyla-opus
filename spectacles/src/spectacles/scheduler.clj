@@ -6,7 +6,8 @@
             [spectacles.kaleidoscope-logo]
             [spectacles.kaleidoscope]
             [spectacles.whalesong]
-            [spectacles.fireflies]))
+            [spectacles.fireflies]
+            [spectacles.polkadots]))
 
 (def sketches {:logo-countdown {:setup  spectacles.present-logo/setup
                                 :update spectacles.present-logo/update
