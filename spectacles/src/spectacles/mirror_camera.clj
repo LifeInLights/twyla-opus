@@ -3,18 +3,21 @@
             [quil.middleware :as m])
   (:import [processing.video Capture]))
 
-; Inspired by mirror2 from quil examples
+; Inspired by mirror2 from processing-video examples
 
 (defn setup []
 
+  (def camera-resolution {:width 1024
+                          :height 768
+                          :frame-rate 30})
   (def cell-size 15)
-  (def cols (/ (q/width) cell-size))
-  (def rows (/ (q/height) cell-size))
+  (def cols (/ (:width camera-resolution) cell-size))
+  (def rows (/ (:height camera-resolution) cell-size))
   (q/color-mode :rgb 255 255 255 100)
   (q/rect-mode :center)
 
   (println "Initializing Camera...")
-  (let [camera (Capture. (quil.applet/current-applet) 1024 768 "/dev/video1" 30)]
+  (let [camera (Capture. (quil.applet/current-applet) (:width camera-resolution) (:height camera-resolution) "/dev/video1" (:frame-rate camera-resolution))]
     (do
       (.start camera))
     {:camera camera})
@@ -35,7 +38,7 @@
         (let [x (* i cell-size)
               y (* j cell-size)
               pixels (.pixels (:camera state))
-              location (+ (- 1024 x 1) (* 1024 y))
+              location (+ (- (:width camera-resolution) x 1) (* (:width camera-resolution) y))
               color (nth pixels location)
               size (* (/ (q/brightness color) 255) cell-size)
               ]
