@@ -7,17 +7,22 @@
 
 (defn setup []
 
-  (def camera-resolution {:width 1024
-                          :height 768
-                          :frame-rate 30})
+  (def camera-specs {:device "/dev/video1"
+                     :width 1024
+                     :height 768
+                     :frame-rate 30})
   (def cell-size 15)
-  (def cols (/ (:width camera-resolution) cell-size))
-  (def rows (/ (:height camera-resolution) cell-size))
+  (def cols (/ (:width camera-specs) cell-size))
+  (def rows (/ (:height camera-specs) cell-size))
   (q/color-mode :rgb 255 255 255 100)
   (q/rect-mode :center)
 
   (println "Initializing Camera...")
-  (let [camera (Capture. (quil.applet/current-applet) (:width camera-resolution) (:height camera-resolution) "/dev/video1" (:frame-rate camera-resolution))]
+  (let [camera (Capture. (quil.applet/current-applet)
+                         (:width camera-specs)
+                         (:height camera-specs)
+                         (:device camera-specs)
+                         (:frame-rate camera-specs))]
     (do
       (.start camera))
     {:camera camera})
@@ -38,7 +43,7 @@
         (let [x (* i cell-size)
               y (* j cell-size)
               pixels (.pixels (:camera state))
-              location (+ (- (:width camera-resolution) x 1) (* (:width camera-resolution) y))
+              location (+ (- (:width camera-specs) x 1) (* (:width camera-specs) y))
               color (nth pixels location)
               size (* (/ (q/brightness color) 255) cell-size)
               ]
