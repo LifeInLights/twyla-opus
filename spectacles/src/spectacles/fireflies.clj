@@ -67,12 +67,13 @@
 
 (defn update-firefly
   [[x y] [vx vy]]
-
-  [(+ x vx) (+ y vy)])
+  (if (> (q/random 1000) 998)
+    [(q/random (q/width)) (q/random (q/height))]
+    [(+ x vx) (+ y vy)])
+  )
 
 (defn update-on
   [on]
-
   (if on
     (< (q/random 1000) 950)
     (< (q/random 100) 5)))
