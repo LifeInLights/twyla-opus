@@ -11,7 +11,7 @@
                      :width 1280
                      :height 720
                      :frame-rate 30})
-  (def cell-size 15)
+  (def cell-size 20)
   (def cols (/ (:width camera-specs) cell-size))
   (def rows (/ (:height camera-specs) cell-size))
   (q/color-mode :rgb 255 255 255 100)
@@ -31,27 +31,24 @@
   )
 
 (defn update [state]
-  state)
-
-(defn draw [state]
   (if (.available (:camera state))
     (do
       (.read (:camera state))
       (.loadPixels (:camera state))
-      (q/background 2 89 15)
-      (doseq [i (range cols)
-              j (range rows)]
+      (assoc state :pixels (.pixels (:camera state))))
+    state))
 
-        (let [x (* i cell-size)
-              y (* j cell-size)
-              pixels (.pixels (:camera state))
-              location (+ (- (:width camera-specs) x 1) (* (:width camera-specs) y))
-              color (nth pixels location)
-              size (* (/ (q/brightness color) 255) cell-size)
-              ]
-          (q/ellipse  (+ x (/ cell-size 2)) (+ y (/ cell-size 2)) size size)
-          )
-        )
-      )
-    )
-  )
+(defn draw [state]
+  (q/background 2 89 15)
+  (doseq [i (range cols)
+          j (range rows)]
+    (let [x (* i cell-size)
+          y (* j cell-size)
+          pixels (:pixels state)
+          location (+ (- (:width camera-specs) x 1) (* (:width camera-specs) y))
+          color (nth pixels location)
+          size (* (/ (q/brightness color) 255) cell-size)
+          ]
+      (q/ellipse  (+ x (/ cell-size 2)) (+ y (/ cell-size 2)) size size))))
+
+
