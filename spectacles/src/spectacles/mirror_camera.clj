@@ -8,8 +8,8 @@
 (defn setup []
 
   (def camera-specs {:device "/dev/video0"
-                     :width 1024
-                     :height 768
+                     :width 1280
+                     :height 720
                      :frame-rate 30})
   (def cell-size 15)
   (def cols (/ (:width camera-specs) cell-size))
@@ -23,6 +23,8 @@
                          (:height camera-specs)
                          (:device camera-specs)
                          (:frame-rate camera-specs))]
+    (q/fill 255 255 255 90)
+    (q/no-stroke)
     (do
       (.start camera))
     {:camera camera})
@@ -36,7 +38,7 @@
     (do
       (.read (:camera state))
       (.loadPixels (:camera state))
-      (q/background 0 0 255)
+      (q/background 2 89 15)
       (doseq [i (range cols)
               j (range rows)]
 
@@ -47,9 +49,7 @@
               color (nth pixels location)
               size (* (/ (q/brightness color) 255) cell-size)
               ]
-          (q/fill 255)
-          (q/no-stroke)
-          (q/rect (+ x (/ cell-size 2)) (+ y (/ cell-size 2)) size size)
+          (q/ellipse  (+ x (/ cell-size 2)) (+ y (/ cell-size 2)) size size)
           )
         )
       )

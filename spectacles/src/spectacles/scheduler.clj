@@ -8,7 +8,8 @@
             [spectacles.whalesong]
             [spectacles.fireflies]
             [spectacles.polkadots]
-            [spectacles.simple-camera]))
+            [spectacles.simple-camera]
+            [spectacles.mirror-camera]))
 
 (def sketches {:logo-countdown {:setup  spectacles.present-logo/setup
                                 :update spectacles.present-logo/update
