@@ -123,12 +123,12 @@
            :on (into [] (map update-on (:on state)))
            )))
 
-(q/defsketch practice
-  :title "Fireflies"
-  :size :fullscreen
-  :setup setup
-  :draw draw
-  :update update
-  :features [:keep-on-top]
-  :middleware [m/fun-mode])
+;; (q/defsketch practice
+;;   :title "Fireflies"
+;;   :size :fullscreen
+;;   :setup setup
+;;   :draw draw
+;;   :update update
+;;   :features [:keep-on-top]
+;;   :middleware [m/fun-mode])
 
