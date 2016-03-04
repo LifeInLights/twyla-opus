@@ -14,6 +14,7 @@
 (defn setup []
   (q/smooth)
   (q/frame-rate 30)
+  (q/cursor-image (q/load-image "resources/images/cursor.png"))
   (generate_fireflies 40)
   )
 
