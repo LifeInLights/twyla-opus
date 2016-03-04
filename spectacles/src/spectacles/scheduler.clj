@@ -78,14 +78,14 @@
                                :author "Aaron Arnett"}})
 
 (def installations {:lifeinlights01 :logo-countdown       ;; Leeds north door
-                    :lifeinlights02 :starfield            ;; Commercial Kitchen (window)
-                    :lifeinlights03 :bet-you-miss         ;; Easy Pickins (Needs to be duplicated/split, black background?)
+                    :lifeinlights02 :mirror-camera        ;; Commercial Kitchen (window)
+                    :lifeinlights03 :bet-you-miss         ;; Easy Pickins
                     :lifeinlights04 :cyberspeed           ;; Bridges and Lane
                     :lifeinlights05 :whalesong            ;; Kerr (C)
-                    :lifeinlights06 :kaleidoscope-logo    ;; Leeds lobby (or entrance?)
+                    :lifeinlights06 :fireflies            ;; Leeds lobby (or entrance?)
                     :lifeinlights07 :kaleidoscope         ;; Commercial Kitchen (facade) (800x600)
-                    :lifeinlights08 :cyberspeed           ;; Kerr (A)
-                    :lifeinlights09 :cyberspeed           ;; Kerr (B)
+                    :lifeinlights08 :polkadots            ;; Kerr (A)
+                    :lifeinlights09 :polkadots            ;; Kerr (B)
 ;;                    ;lifeinlights10 :                   ;; Unused
 :Spectre :mirror-camera                    }) 
 
