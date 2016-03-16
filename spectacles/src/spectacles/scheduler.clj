@@ -35,17 +35,29 @@
                             :name   "Cyber Speed"
                             :author "Maria Jackson"}
 
-               :kaleidoscope {:setup  spectacles.kaleidoscope/setup
+               :kaleidoscope {:setup  (partial spectacles.kaleidoscope/setup "resources/images/lifeinlights-logo.png")
                               :update spectacles.kaleidoscope/update
                               :draw   spectacles.kaleidoscope/draw
                               :name   "Kaleidoscope"
                               :author "Arthur Hall III"}
 
-               :kaleidoscope-logo {:setup  spectacles.kaleidoscope-logo/setup
+               :kaleidoscope-clover {:setup  (partial spectacles.kaleidoscope/setup "resources/images/clover.png")
+                                     :update spectacles.kaleidoscope/update
+                                     :draw   spectacles.kaleidoscope/draw
+                                     :name   "Kaleidoscope Clover"
+                                     :author "Arthur Hall III"}
+
+               :kaleidoscope-logo {:setup  (partial spectacles.kaleidoscope-logo/setup "resources/images/lifeinlights-logo.png")
                                    :update spectacles.kaleidoscope-logo/update
                                    :draw   spectacles.kaleidoscope-logo/draw
                                    :name   "Kaleidoscope Logo"
                                    :author "Arthur Hall III"}
+
+               :kaleidoscope-spiral-clover {:setup  (partial spectacles.kaleidoscope-logo/setup "resources/images/clover.png")
+                                            :update spectacles.kaleidoscope-logo/update
+                                            :draw   spectacles.kaleidoscope-logo/draw
+                                            :name   "Kaleidoscope Spiral Clover"
+                                            :author "Arthur Hall III"}
 
                :whalesong {:setup  spectacles.whalesong/setup
                            :update spectacles.whalesong/update
@@ -79,36 +91,28 @@
 
 (def installations {:lifeinlights01 :logo-countdown       ;; Leeds north door
                     :lifeinlights02 :mirror-camera        ;; Commercial Kitchen (window)
-                    :lifeinlights03 :bet-you-miss         ;; Easy Pickins
+                    :lifeinlights03 :bet-you-miss         ;; Easy Pickins 
                     :lifeinlights04 :cyberspeed           ;; Bridges and Lane
-                    :lifeinlights05 :whalesong            ;; Kerr (C)
+                    :lifeinlights05 :kaleidoscope            ;; Kerr (C)
                     :lifeinlights06 :fireflies            ;; Leeds lobby (or entrance?)
-                    :lifeinlights07 :kaleidoscope         ;; Commercial Kitchen (facade) (800x600)
+                    :lifeinlights07 :kaleidoscope-clover  ;; Commercial Kitchen (facade) (800x600)
                     :lifeinlights08 :polkadots            ;; Kerr (A)
                     :lifeinlights09 :polkadots            ;; Kerr (B)
-;;                    ;lifeinlights10 :                   ;; Unused
-:Spectre :mirror-camera                    }) 
+                    :lifeinlights10 :logo-countdown       ;; Unused
+                    })
 
 (defn select-sketch []
   (let [hostname (.getHostName (java.net.InetAddress/getLocalHost))]
-    (get sketches (get installations (keyword hostname) :logo-countdown))))
+    (get sketches (get installations (keyword hostname) :polkadots))))
 
 (def active-sketch (atom {:sketch (select-sketch)
                           :expiration :never}))
 
 (defn setup []
-;;  (println "Calling setup on: " (get-in @active-sketch [:sketch :name]))
-  ;; determine which is the first sketch to be active and invoke its setup function
   ((:setup (:sketch @active-sketch))))
 
 (defn update [state]
-;;  (println "Calling update on: " (get-in @active-sketch [:sketch :name]))
-  ;; determine whether it's time to swap sketches
-  ;; if not, invoke the active sketch's draw function
-  ;; if so, swap to the new sketch's draw function, initializing with its setup function
   ((:update (:sketch @active-sketch)) state))
 
 (defn draw [state]
-;;  (println "Calling draw on: " (get-in @active-sketch [:sketch :name]))
-  ;; invoke the active sketch's draw function
   ((:draw (:sketch @active-sketch)) state))

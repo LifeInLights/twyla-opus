@@ -15,14 +15,14 @@
      :yspeed yspeed
      :size (q/random (:min_size (q/state)) (:max_size (q/state)))}))
 
-(defn setup []
+(defn setup [image-file]
   (q/frame-rate 5)
   {:max_size 200
    :min_size 50
    :max_speed 10
    :ldots (list)
    :rdots (list)
-   :logo (q/load-image "resources/images/lifeinlights-logo.png")})
+   :logo (q/load-image image-file)})
 
 (defn draw-dots [x y direction dots func]
   (q/push-matrix)

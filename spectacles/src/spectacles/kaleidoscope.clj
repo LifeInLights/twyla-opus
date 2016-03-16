@@ -19,13 +19,13 @@
      :xspeed xspeed
      :yspeed yspeed
      :diameter (q/random min_diameter max_diameter)
-     :color [(q/random 256) (q/random 256) (q/random 256) (q/random 10 200)]}))
+     :color [(q/random 64) (q/random 256) (q/random 64) (q/random 10 200)]}))
 
-(defn setup []
+(defn setup [image-file]
   (q/background 0)
   (q/smooth)
   (q/frame-rate 60)
-  (let [image (q/load-image "resources/images/lifeinlights-logo.png")]
+  (let [image (q/load-image image-file)]
     (q/resize image 150 0)
     {:ldots (list (new_dot))
      :rdots (list (new_dot))
