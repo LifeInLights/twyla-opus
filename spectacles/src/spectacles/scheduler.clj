@@ -95,7 +95,7 @@
                     :lifeinlights04 :cyberspeed           ;; Bridges and Lane
                     :lifeinlights05 :kaleidoscope            ;; Kerr (C)
                     :lifeinlights06 :fireflies            ;; Leeds lobby (or entrance?)
-                    :lifeinlights07 :kaleidoscope-clover  ;; Commercial Kitchen (facade) (800x600)
+                    :lifeinlights07 :kaleidoscope         ;; Commercial Kitchen (facade) (800x600)
                     :lifeinlights08 :polkadots            ;; Kerr (A)
                     :lifeinlights09 :polkadots            ;; Kerr (B)
                     :lifeinlights10 :logo-countdown       ;; Unused
