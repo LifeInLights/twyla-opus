@@ -19,7 +19,7 @@
      :xspeed xspeed
      :yspeed yspeed
      :diameter (q/random min_diameter max_diameter)
-     :color [(q/random 64) (q/random 256) (q/random 64) (q/random 10 200)]}))
+     :color [(q/random 256) (q/random 256) (q/random 256) (q/random 10 126)]}))
 
 (defn setup [image-file]
   (q/background 0)
