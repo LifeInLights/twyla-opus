@@ -102,10 +102,10 @@
                                :author "Aaron Arnett"}})
 
 (def installations {:lifeinlights01 :logo-countdown       ;; Leeds north door
-                    :lifeinlights02 :mirror-camera        ;; Commercial Kitchen (window)
+                    :lifeinlights02 :social-light         ;; Commercial Kitchen (window)
                     :lifeinlights03 :bet-you-miss         ;; Easy Pickins 
                     :lifeinlights04 :cyberspeed           ;; Bridges and Lane
-                    :lifeinlights05 :kaleidoscope            ;; Kerr (C)
+                    :lifeinlights05 :social-light         ;; Kerr (C)
                     :lifeinlights06 :fireflies            ;; Leeds lobby (or entrance?)
                     :lifeinlights07 :kaleidoscope-lamp    ;; Commercial Kitchen (facade) (800x600)
                     :lifeinlights08 :polkadots            ;; Kerr (A)
