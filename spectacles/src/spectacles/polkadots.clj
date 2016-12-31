@@ -60,11 +60,11 @@
   (q/background 0)
   (q/no-stroke)
 
-  (q/fill 255 0 0 128)
+  (q/fill 255 0 0 255)
   (doseq [dot (:vdots state)]
     (q/ellipse (:x dot) (:y dot) (:diameter dot) (:diameter dot)))
 
-  (q/fill 255 255 0 128)
+  (q/fill 255 255 0 255)
   (doseq [dot (:hdots state)]
     (q/ellipse (:x dot) (:y dot) (:diameter dot) (:diameter dot))))
 
