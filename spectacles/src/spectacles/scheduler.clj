@@ -47,6 +47,12 @@
                                      :name   "Kaleidoscope Clover"
                                      :author "Arthur Hall III"}
 
+               :kaleidoscope-lamp {:setup  (partial spectacles.kaleidoscope/setup "resources/images/lamp-logo-silhouette.png")
+                                   :update spectacles.kaleidoscope/update
+                                   :draw   spectacles.kaleidoscope/draw
+                                   :name   "Kaleidoscope Lamp Silhouette"
+                                   :author "Arthur Hall III"}
+
                :kaleidoscope-logo {:setup  (partial spectacles.kaleidoscope-logo/setup "resources/images/lifeinlights-logo.png")
                                    :update spectacles.kaleidoscope-logo/update
                                    :draw   spectacles.kaleidoscope-logo/draw
@@ -101,7 +107,7 @@
                     :lifeinlights04 :cyberspeed           ;; Bridges and Lane
                     :lifeinlights05 :kaleidoscope            ;; Kerr (C)
                     :lifeinlights06 :fireflies            ;; Leeds lobby (or entrance?)
-                    :lifeinlights07 :kaleidoscope         ;; Commercial Kitchen (facade) (800x600)
+                    :lifeinlights07 :kaleidoscope-lamp    ;; Commercial Kitchen (facade) (800x600)
                     :lifeinlights08 :polkadots            ;; Kerr (A)
                     :lifeinlights09 :polkadots            ;; Kerr (B)
                     :lifeinlights10 :logo-countdown       ;; Unused
@@ -109,7 +115,7 @@
 
 (defn select-sketch []
   (let [hostname (.getHostName (java.net.InetAddress/getLocalHost))]
-    (get sketches (get installations (keyword hostname) :polkadots))))
+    (get sketches (get installations (keyword hostname) :kaleidoscope-lamp))))
 
 (def active-sketch (atom {:sketch (select-sketch)
                           :expiration :never}))
