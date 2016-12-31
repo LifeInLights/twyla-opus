@@ -9,7 +9,7 @@
         ;;(.fromWebPage "https://twitter.com/WinCityMain")
         ;;(.fromTextString (into-array String ["Life In Lights Winchester"]))
         (.fromTextFile "resources/posts.txt")
-        (.withColors (int-array [(q/color 220) (q/color 140) (q/color (q/random 255) 240 200)]))
+        (.withColors (int-array [(q/color 220) (q/color 140) (q/color (q/random 255) 240 255)]))
         (.sizedByWeight 5 80)
         (.withFont"Copse")
         (.angledBetween (float -1.6) (float 1.6))))
@@ -23,7 +23,7 @@
   {:wordcram (initialize-wordcram (quil.applet/current-applet))}
 )
 
-(defn update-state [state] 
+(defn update [state] 
   (if (= 0 (mod (q/frame-count) 120))
     (do
       (q/background 0)
@@ -31,7 +31,7 @@
     state)
   )
 
-(defn draw-state [state]
+(defn draw [state]
   (if (.hasMore (:wordcram state))
     (.drawNext (:wordcram state)))
   state)

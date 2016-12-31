@@ -83,6 +83,12 @@
                                :name   "SimpleCam"
                                :author "Aaron Arnett"}
 
+               :social-light {:setup  spectacles.social-light/setup
+                              :update spectacles.social-light/update
+                              :draw   spectacles.social-light/draw
+                              :name   "SocialLight"
+                              :author "Aaron Arnett"}
+
                :mirror-camera {:setup  spectacles.mirror-camera/setup
                                :update spectacles.mirror-camera/update
                                :draw   spectacles.mirror-camera/draw
