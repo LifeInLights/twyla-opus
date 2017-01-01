@@ -9,7 +9,9 @@
             [spectacles.fireflies]
             [spectacles.polkadots]
             [spectacles.simple-camera]
-            [spectacles.mirror-camera]))
+            [spectacles.mirror-camera]
+            [spectacles.social-light]
+            ))
 
 (def sketches {:logo-countdown {:setup  spectacles.present-logo/setup
                                 :update spectacles.present-logo/update
